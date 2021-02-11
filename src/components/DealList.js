@@ -10,7 +10,7 @@ const Deallist = (props) => {
         <FlatList
           data={props.deals}
           renderItem={({item}) => 
-            <DealItem deal={item}/>
+            <DealItem deal={item} onPress={props.onItemPress}/>
           }
         />
       </View>
@@ -21,14 +21,13 @@ const Deallist = (props) => {
 const styles = StyleSheet.create({
   list: {
     backgroundColor: '#eee',
-    flex: 1,
-    paddingTop: 50,
     width: '100%'
   }
 });
 
 Deallist.propTypes = {
-  deals: PropTypes.array.isRequireds
+  deals: PropTypes.array.isRequired,
+  onItemPress: PropTypes.func.isRequired,
 };
 
 export default Deallist;
